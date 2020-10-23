@@ -1,0 +1,20 @@
+{
+  "name": "bem-elements",
+  "version": "1.0.0",
+  "description": "Create HTML elements (blocks) from JavaScript that follow the BEM architecture (**B**lock **E**lement **M**odifier).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bqardi-opensource-projects/bem-elements.git"
+  },
+  "keywords": [],
+  "author": "Sune",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bqardi-opensource-projects/bem-elements/issues"
+  },
+  "homepage": "https://github.com/bqardi-opensource-projects/bem-elements#readme"
+}
