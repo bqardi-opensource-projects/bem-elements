@@ -113,3 +113,7 @@ Will output this HTML:
 ### NOTE!
 
 In that ultra rare case you should accidentally create an ELEMENT that already exists (*that will never happen, right?*), an error is thrown and the ELEMENT will not be created!
+
+If, for some reason, no parameters are passed, when creating a BLOCK, an HTML element `<div class="undefined"></div>` is created.
+
+If no parameters are passed, when creating an ELEMENT, an HTML element `<div class="[block-name]__undefined"></div>` is created.
