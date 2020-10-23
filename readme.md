@@ -11,7 +11,7 @@ Create HTML elements (blocks) from JavaScript that follow the BEM architecture (
 
 ##### JavaScript:
 ```javascript
-import bem from "https://unpkg.com/@bqardi/bem-elements@1.0.0/index.js";
+import bem from "https://unpkg.com/@bqardi/bem-elements@1.1.0/index.js";
 ```
 
 ### Usage:
@@ -109,3 +109,7 @@ Will output this HTML:
     <img class="BtnImage BtnImage_Large">
 </button>
 ```
+
+### NOTE!
+
+In that ultra rare case you should accidentally create an ELEMENT that already exists (*that will never happen, right?*), an error is thrown and the ELEMENT will not be created!
