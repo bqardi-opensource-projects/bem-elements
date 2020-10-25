@@ -1,6 +1,6 @@
 {
   "name": "bem-elements",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Create HTML elements (blocks) from JavaScript that follow the BEM architecture (**B**lock **E**lement **M**odifier).",
   "main": "index.js",
   "scripts": {
