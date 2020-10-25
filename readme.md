@@ -11,7 +11,7 @@ Create HTML elements (blocks) from JavaScript that follow the BEM architecture (
 
 JavaScript:
 ```javascript
-import bem from "https://unpkg.com/bem-elements@1.1.5/index.js";
+import bem from "https://unpkg.com/bem-elements@1.1.6/index.js";
 ```
 
 ## Usage:
