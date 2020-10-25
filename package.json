@@ -10,7 +10,22 @@
     "type": "git",
     "url": "git+https://github.com/bqardi-opensource-projects/bem-elements.git"
   },
-  "keywords": [],
+  "keywords": [
+    "bem",
+    "block",
+    "element",
+    "modifier",
+    "easy",
+    "html",
+    "dom",
+    "js",
+    "javascript",
+    "create",
+    "class",
+    "add",
+    "remove",
+    "toggle"
+  ],
   "author": "Sune",
   "license": "MIT",
   "bugs": {
