@@ -1,43 +1,45 @@
 # BEM Elements
 
-Create HTML elements (blocks) from JavaScript that follow the BEM architecture (B)lock (E)lement (M)odifier).
+Create HTML elements (blocks) from JavaScript that follow the BEM architecture (Block, Element, Modifier).
 
-- Create the main **Block** HTML element
+- Create the main **Block** HTML element.
 - Append **Element**'s to the Block HTML element.
 - Add multiple **Modifier**'s to both Block's and Element's.
-- Manipulate **Modifier**'s (add, remove and toggle)
+- Manipulate **Modifier**'s (add, remove and toggle).
 
-### Import:
+## Import:
 
-##### JavaScript:
+JavaScript:
 ```javascript
-import bem from "https://unpkg.com/bem-elements@1.1.5/index.js";
+import bem from "https://unpkg.com/bem-elements@1.1.6/index.js";
 ```
 
-### Usage:
+## Usage:
 
-##### JavaScript:
+JavaScript:
 ```javascript
-// Creating the BLOCK html element:
+// Creating the BLOCK (html element):
 var btn = bem("button", "btn");
 
 // Setting a MODIFIER:
 btn.addModifier("blue");
 
-// Add ELEMENT as a child:
+// Add the ELEMENT (html element) as a child of btn:
 var btnImage = btn.addElement("img", "image");
 
 // You can also set MODIFIER's on ELEMENT's:
 btnImage.addModifier("large");
 
-// And because it's an img, we need to manually insert src and alt:
-btnImage.src = "./path/to/file";
-btnImage.alt = "My personal image";
+// And because it's an img, we need to manually insert src and alt,
+// on the htmlElement of btnImage:
+btnImage.htmlElement.src = "./path/to/file";
+btnImage.htmlElement.alt = "My personal image";
 ```
+*Since `btn` and `btnImage` are objects containing information about the BLOCK/ELEMENT we need to get the html element from that object to manipuate it in the DOM like so: `btn.htmlElement` or `btnImage.htmlElement`.*
 
 The above JavaScript code will output this HTML:
 
-##### html:
+html:
 ```html
 <button class="btn btn--blue">
     <img class="btn__image btn__image--large" src="./path/to/file" alt="My personal image">
@@ -46,25 +48,33 @@ The above JavaScript code will output this HTML:
 
 provided that you have appended the `btn` to an actual element on your page:
 
-##### html:
+html:
 ```html
 <div id="root"></div>
 ```
 
-##### JavaScript:
+JavaScript:
 ```javascript
 var root = document.getElementById("root");
-root.appendChild(btn);
+root.appendChild(btn.htmlElement);
 ```
+*Remember the `btn.htmlElement` from earlier? We can't append an object to an HTML element `root.appendChild(btn);` so we need the htmlElement from the object `root.appendChild(btn.htmlElement);` for it to work properly.*
 
-### Other features
+*If you get this error in the console:*
+```diff
+- Uncaught TypeError: Failed to execute 'appendChild'
+- on 'Node': parameter 1 is not of type 'Node'.
+```
+*it propably means that you are trying to append the object and not the HTML element!*
 
-#### Removing a MODIFIER:
-##### JavaScript:
+## Other features
+
+### Removing a MODIFIER:
+JavaScript:
 ```javascript
 btn.removeModifier("blue");
 ```
-##### HTML:
+HTML:
 ```html
 <!-- Before -->
 <button class="btn btn--blue">
@@ -77,12 +87,12 @@ btn.removeModifier("blue");
 </button>
 ```
 
-#### Toggle a MODIFIER:
-##### JavaScript:
+### Toggle a MODIFIER:
+JavaScript:
 ```javascript
 btn.toggleModifier("blue");
 ```
-##### HTML:
+HTML:
 ```html
 <!-- Toggled on -->
 <button class="btn btn--blue">
@@ -95,22 +105,20 @@ btn.toggleModifier("blue");
 </button>
 ```
 
-#### Changing the naming scheme:
+### Changing the naming scheme:
 To change the underscores and dashes (in the common BEM naming scheme), you need to define them as third and fourth parameter when creating the BLOCK:
-##### JavaScript:
 ```javascript
 var btn = bem("button", "Btn", "", "_");
 var btnImage = btn.addElement("img", "Image");
 ```
 Will output this HTML:
-##### HTML:
 ```html
 <button class="Btn Btn_Blue">
     <img class="BtnImage BtnImage_Large">
 </button>
 ```
 
-### NOTE!
+## Note!
 
 In that ultra rare case you should accidentally create an ELEMENT that already exists (*that will never happen, right?*), an error is thrown and the ELEMENT will not be created!
 
