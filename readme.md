@@ -1,6 +1,6 @@
 # BEM Elements
 
-Create HTML elements (blocks) from JavaScript that follow the BEM architecture (Block, Element, Modifier).
+Create HTML elements (blocks) from JavaScript that follow the BEM architecture (**B**lock, **E**lement, **M**odifier).
 
 - Create the main **Block** HTML element.
 - Append **Element**'s to the Block HTML element.
@@ -11,7 +11,7 @@ Create HTML elements (blocks) from JavaScript that follow the BEM architecture (
 
 JavaScript:
 ```javascript
-import bem from "https://unpkg.com/bem-elements@1.1.6/index.js";
+import bem from "https://unpkg.com/bem-elements";
 ```
 
 ## Usage:
@@ -19,12 +19,14 @@ import bem from "https://unpkg.com/bem-elements@1.1.6/index.js";
 JavaScript:
 ```javascript
 // Creating the BLOCK (html element):
+// First argument is the HTML tag name, second is the BLOCK name 
 var btn = bem("button", "btn");
 
 // Setting a MODIFIER:
 btn.addModifier("blue");
 
 // Add the ELEMENT (html element) as a child of btn:
+// First argument is the HTML tag name, second is the ELEMENT name 
 var btnImage = btn.addElement("img", "image");
 
 // You can also set MODIFIER's on ELEMENT's:
